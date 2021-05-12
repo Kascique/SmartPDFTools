@@ -8,12 +8,12 @@ from datetime import datetime
 today = date.today()
 now = datetime.now()
 
-smartTool = Blueprint('smartTool', __name__)
+smart_tools = Blueprint('smart_tools', __name__)
 
 date_format = "%m/%d/%Y"
 time_format = "%H:%M:%S"
 date_time_format = "%m/%d/%Y %H:%M:%S"
 
-@smartTool.route('/SmartTools')
+@smart_tools.route('/SmartTools')
 def index():
     return render_template('SmartTools/index.html')
