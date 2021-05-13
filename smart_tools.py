@@ -30,19 +30,19 @@ def encrypt():
     print(password)
     print(file)
 
-    # filename = secure_filename(file.filename)
-    # file.save(os.path.join('/uploads/', filename))
+    filename = secure_filename(file.filename)
+    file.save(os.path.join('/Uploads/', filename))
     # return redirect(url_for('uploaded_file',
     #                         filename=filename))
 
-    with open(file, "rb") as in_file:
-        input_pdf = PdfFileReader(in_file)
+    # with open(file, "rb") as in_file:
+    #     input_pdf = PdfFileReader(in_file)
 
-    output_pdf = PdfFileWriter()
-    output_pdf.appendPagesFromReader(input_pdf)
-    output_pdf.encrypt("password")
+    # output_pdf = PdfFileWriter()
+    # output_pdf.appendPagesFromReader(input_pdf)
+    # output_pdf.encrypt("password")
 
-    with open("output.pdf", "wb") as out_file:
-        output_pdf.write(out_file)
+    # with open("output.pdf", "wb") as out_file:
+    #     output_pdf.write(out_file)
 
     return redirect(url_for('smart_tools.index'))
