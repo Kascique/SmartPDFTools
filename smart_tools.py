@@ -27,13 +27,15 @@ def encrypt():
     password = request.form.get('password')
     file = request.files['file']
 
-    path = 'SmartTools/templates/SmartTools/Upload/'
+    mpath = 'SmartTools/templates/SmartTools/Upload/'
+    path = 'templates/SmartTools/Upload/'
 
-    filename = path + secure_filename(file.filename)
+
+    filename = mpath + secure_filename(file.filename)
     file.save(filename)
 
-    encrypt_path = path + secure_filename(file.filename)
-    download_path = '/templates/SmartTools/Upload/' + secure_filename(file.filename)
+    encrypt_path = mpath + secure_filename(file.filename)
+    download_path = path + secure_filename(file.filename)
 
     with open(filename, "rb") as in_file:
         input_pdf = PdfFileReader(in_file)
