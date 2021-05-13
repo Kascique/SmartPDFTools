@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, redirect, url_for, request, flash
-from pyPDF2 import PdfFileReader, PdfFileWriter
+from PyPDF2 import PdfFileReader, PdfFileWriter
+
 
 import uuid
 
@@ -26,5 +27,13 @@ def encrypt():
 
     print(password)
     print(file)
+
+    input_pdf = PdfFileReader(file)
+    output_pdf = PdfFileWriter()
+    output_pdf.appendPagesFromReader(input_pdf)
+    output_pdf.encrypt("password")
+    
+    with open("output.pdf", "wb") as out_file:
+        output_pdf.write(out_file)
 
     return redirect(url_for('smart_tools.index'))
