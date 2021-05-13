@@ -30,7 +30,6 @@ def encrypt():
     mpath = 'SmartTools/templates/SmartTools/Upload/'
     path = 'templates/SmartTools/Upload/'
 
-
     filename = mpath + secure_filename(file.filename)
     file.save(filename)
 
