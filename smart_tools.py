@@ -42,9 +42,7 @@ def encrypt():
         output_pdf.encrypt(str(password))
         with open(encrypt_path, "wb") as out_file:
             output_pdf.write(out_file)
-
-    return send_file(encrypt_path, as_attachment=True)
     
-    # return redirect(url_for('smart_tools.index'))
+    return redirect(url_for('smart_tools.index'))
 
 
