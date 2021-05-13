@@ -29,8 +29,8 @@ def encrypt():
 
     # print(file)
 
-    # filename = secure_filename(file.filename)
-    # file.save(os.path.join('/Uploads/', filename))
+    filename = secure_filename(file.filename)
+    file.save(os.path.join('/Uploads/', filename))
 
     # return redirect(url_for('uploaded_file',
     #                         filename=filename))
