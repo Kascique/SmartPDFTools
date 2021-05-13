@@ -33,7 +33,7 @@ def encrypt():
     file.save(filename)
 
     encrypt_path = path + secure_filename(file.filename)
-    download_path = 
+    download_path = '/templates/SmartTools/Upload/' + secure_filename(file.filename)
 
     with open(filename, "rb") as in_file:
         input_pdf = PdfFileReader(in_file)
@@ -42,6 +42,8 @@ def encrypt():
         output_pdf.encrypt(str(password))
         with open(encrypt_path, "wb") as out_file:
             output_pdf.write(out_file)
+
+    return send_file(download_path, as_attachment=True)
     
     return redirect(url_for('smart_tools.index'))
 
