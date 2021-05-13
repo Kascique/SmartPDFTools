@@ -21,4 +21,5 @@ def index():
 
 @smart_tools.route('/SmartTools/pdf/encrypt', methods=['POST'])
 def encrypt():
+    password = request.form.get('password')
     return redirect(url_for('smart_tools.index'))
