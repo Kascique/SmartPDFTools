@@ -30,7 +30,7 @@ def encrypt():
     filename = 'Uploads/' + secure_filename(file.filename)
     file.save(filename)
 
-    encrypt_path = 'Uploads/Encrypted/' + secure_filename(file.filename)
+    encrypt_path = 'Uploads/' + secure_filename(file.filename)
 
     with open(filename, "rb") as in_file:
         input_pdf = PdfFileReader(in_file)
