@@ -34,4 +34,16 @@ def encrypt():
     filename = 'Uploads/' + secure_filename(file.filename)
     file.save(filename)
 
+    encrypt_path = 'Uploads/encrypt/' + secure_filename(file.filename)
+
+    with open(filename, "rb") as in_file:
+        input_pdf = PdfFileReader(in_file)
+
+    output_pdf = PdfFileWriter()
+    output_pdf.appendPagesFromReader(input_pdf)
+    output_pdf.encrypt("password")
+
+    with open(encrypt_path, "wb") as out_file:
+        output_pdf.write(out_file)
+
     return redirect(url_for('smart_tools.index'))
