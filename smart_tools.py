@@ -39,8 +39,8 @@ def encrypt():
     output_pdf.appendPagesFromReader(input_pdf)
     output_pdf.encrypt("password")
 
-    with open(encrypt_path, "wb") as out_file:
-        output_pdf.write(out_file)
+    # with open(encrypt_path, "wb") as out_file:
+    #     output_pdf.write(out_file)
 
 
     return redirect(url_for('smart_tools.index'))
