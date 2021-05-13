@@ -27,10 +27,6 @@ def encrypt():
     password = request.form.get('password')
     file = request.files['file']
 
-    # print(file)
-
-
-
     filename = 'Uploads/' + secure_filename(file.filename)
     file.save(filename)
 
