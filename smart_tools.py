@@ -24,6 +24,7 @@ def encrypt():
     password = request.form.get('password')
     file = request.form.get('file')
 
+    print(password)
     print(file)
 
     return redirect(url_for('smart_tools.index'))
