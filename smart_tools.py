@@ -36,7 +36,7 @@ def encrypt():
         input_pdf = PdfFileReader(in_file)
         output_pdf = PdfFileWriter()
         output_pdf.appendPagesFromReader(input_pdf)
-        output_pdf.encrypt("password")
+        output_pdf.encrypt(str(password))
         with open(encrypt_path, "wb") as out_file:
             output_pdf.write(out_file)
 
