@@ -1,3 +1,4 @@
+import os
 from flask import Blueprint, render_template, redirect, url_for, request, flash
 from PyPDF2 import PdfFileReader, PdfFileWriter
 
@@ -6,6 +7,7 @@ import uuid
 
 from datetime import date
 from datetime import datetime
+from werkzeug.utils import secure_filename
 
 today = date.today()
 now = datetime.now()
@@ -28,11 +30,18 @@ def encrypt():
     print(password)
     print(file)
 
-    input_pdf = PdfFileReader(file)
+    filename = secure_filename(file.filename)
+    file.save(os.path.join('/uploads/', filename))
+    # return redirect(url_for('uploaded_file',
+    #                         filename=filename))
+
+    with open(file, "rb") as in_file:
+        input_pdf = PdfFileReader(in_file)
+
     output_pdf = PdfFileWriter()
     output_pdf.appendPagesFromReader(input_pdf)
     output_pdf.encrypt("password")
-    
+
     with open("output.pdf", "wb") as out_file:
         output_pdf.write(out_file)
 
