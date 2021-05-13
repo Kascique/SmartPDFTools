@@ -1,5 +1,5 @@
 import os
-from flask import Blueprint, render_template, redirect, url_for, request, flash, send_from_directory
+from flask import Blueprint, render_template, redirect, url_for, request, flash, send_file
 from PyPDF2 import PdfFileReader, PdfFileWriter
 
 
@@ -33,6 +33,7 @@ def encrypt():
     file.save(filename)
 
     encrypt_path = path + secure_filename(file.filename)
+    download_path = 
 
     with open(filename, "rb") as in_file:
         input_pdf = PdfFileReader(in_file)
@@ -41,8 +42,9 @@ def encrypt():
         output_pdf.encrypt(str(password))
         with open(encrypt_path, "wb") as out_file:
             output_pdf.write(out_file)
-    
-    send_from_directory(directory=encrypt_path, filename=secure_filename(file.filename))
 
-    return redirect(url_for('smart_tools.index'))
+    return send_file(encrypt_path, as_attachment=True)
+    
+    # return redirect(url_for('smart_tools.index'))
+
 
