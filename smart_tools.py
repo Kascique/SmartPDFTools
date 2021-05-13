@@ -17,3 +17,7 @@ date_time_format = "%m/%d/%Y %H:%M:%S"
 @smart_tools.route('/SmartTools')
 def index():
     return render_template('SmartTools/index.html')
+
+@smart_tools.route('/SmartTools/pdf/encrypt')
+def encrypt():
+    return redirect(url_for('smart_tools.index'))
