@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template, redirect, url_for, request, flash
+from werkzeug.utils import secure_filename
 
 import uuid
 
