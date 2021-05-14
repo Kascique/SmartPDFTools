@@ -1,0 +1,13 @@
+Date,ThirdParty AccountID,ThirdParty Provider,ThirdParty Balance,Amount,Recipient,Recipient Name,Sender, Sender Name,Description,TransactionID,Type,Balance,Status
+2021-03-08T14:19:09-04:00,-,-,-,15,17841111115,Payswif MobileTopup,17844332555,Kascique Lowmans,Mobile Service Topup to 7844332555 in the amount of $15 for provider Digicel. Your service fee is $0,TRNSX1-jas58qq925km0ws1c0,debit,0,completed
+2021-03-08T14:18:13-04:00,107022541,fcib,-,520,17844332555,Kascique Lowmans,PaySwif,PaySwif,Withdrawal Method INSTITUTIONS | Account Name Kascique Lowmans | Account ID 107022541,WTDX1-jas58qq925km0wqujv,withdraw,15,completed
+2021-03-08T14:08:08-04:00,-,-,-,535,17844332555,Kascique Lowmans,17844968787,Jomo Alleyne,Account has been credited,VTSCX1-jas58qq925km0wdvi1,credit,535,completed
+2021-02-04T13:30:12-04:00,0000,-,-,400,17844332555,Kascique Lowmans,PaySwif,PaySwif,Withdrawal Method CASH,WTDX1-jas58qql0kkkr4xtrk,withdraw,0,completed
+2021-02-04T13:26:49-04:00,0000,-,-,1000,17844332555,Kascique Lowmans,PaySwif,PaySwif,Withdrawal Method CASH,WTDX1-jas58qql0kkkr4tht9,withdraw,400,completed
+
+2021-02-04T13:02:49-04:00,-,-,-,1400,17844332555,Kascique Lowmans,17844968787,Jomo Alleyne,Account has been credited,VTSCX1-jas58qql0kkkr3ym7u,credit,1400,completed
+2021-02-04T01:30:43-04:00,107022541,fcib,-,540,17844332555,Kascique Lowmans,PaySwif,PaySwif,Withdrawal Method INSTITUTIONS | Account Name Kascique Lowmans | Account ID 107022541,WTDX1-jas58qql0kkkqf8kr4,withdraw,0,completed
+2021-02-03T21:22:41-04:00,-,-,-,535,17844332555,Kascique Lowmans,17844968787,Jomo Alleyne,Account has been credited,VTSCX1-jas58qql0kkkq6dlos,credit,540,completed
+2020-12-31T10:32:16-04:00,-,-,-,10,17841111115,Payswif MobileTopup,17844332555,Kascique Lowmans,Mobile Service Topup to 17844332555 in the amount of $10 for provider Digicel. Your service fee is $0,TRNSX1-jas58qq6dtkjcy64xm,debit,5,completed
+2020-12-31T07:59:44-04:00,107022541,fcib,-,520,17844332555,Kascique Lowmans,PaySwif,PaySwif,Withdrawal Method INSTITUTIONS | Account Name Kascique Lowmans | Account ID 107022541,WTDX1-jas58qq6dtkjcsq0uc,withdraw,15,completed
+2020-12-31T04:20:13-04:00,-,-,-,535,17844332555,Kascique Lowmans,17844968787,Jomo Alleyne,Account has been credited,VTSCX1-jas58qq6dtkjckvoli,credit,535,completed

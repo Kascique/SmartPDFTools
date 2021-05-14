@@ -40,6 +40,11 @@ def encrypt():
 
     # Save PDF file
     filename = mpath + unique + secure_filename(file.filename)
+
+    # If file is not PDF
+    if not filename.endswith('.pdf'):
+        return redirect(url_for('smart_tools.index'))
+        
     file.save(filename)
 
     encrypt_path = mpath + unique + secure_filename(file.filename)
@@ -82,6 +87,11 @@ def decrypt():
 
     # Save PDF file
     filename = mpath + unique + secure_filename(file.filename)
+    
+    # If file is not PDF
+    if not filename.endswith('.pdf'):
+        return redirect(url_for('smart_tools.index'))
+
     file.save(filename)
 
     decrypt_path = mpath + unique + secure_filename(file.filename)
