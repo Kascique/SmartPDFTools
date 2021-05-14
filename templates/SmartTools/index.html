@@ -108,6 +108,7 @@
          new dialog(`#${id}`).open();
       }
       function buildInputList(){
+        event.preventDefault();
         console.log("welcome");
         input_cont = document.getElementById('file_input');
         num_pages = document.getElementById('num_pages');
