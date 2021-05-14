@@ -4,12 +4,12 @@
         <label class="title">Descypt PDF File</label>
       </header>
       <section>
-        <form>
+        <form class="ui form" method="POST" action="{{ url_for('smart_tools.decrypt') }}" enctype="multipart/form-data">
             <div class="ui large icon input">
                 <input name="password" type="password" placeholder="Password">
             </div>
             <div class="ui large icon input">
-                <input  type="file" accept="application/pdf" placeholder="Select file">
+                <input type="file" accept="application/pdf" placeholder="Select file">
             </div>
             <br/><br/>
             <button class="ui button blue big">
