@@ -5,18 +5,37 @@
       </header>
       <section>
         <form class="ui form" method="POST" action="{{ url_for('smart_tools.combine') }}" enctype="multipart/form-data">
-            <div class="ui large icon input">
-                <input name="num_pages" type="number" placeholder="Number of pages">
-            </div>
-            <div class="ui large icon input">
-                <input name="files" type="file" accept="application/pdf" placeholder="Select files" multiple>
-            </div>
+
+            <div class="ui action input">
+                <input name="num_pages" type="number" id="num_pages" placeholder="Number of pages">
+                <button class="ui teal right labeled icon button" onclick="buildInputList(); return false;">
+                  Ready
+                </button>
+              </div>
+
+            <div id="file_input"></div>
             <br/><br/>
-            <button class="ui button blue big">
+            <!-- <button class="ui button blue big">
                 Combine
-            </button>
+            </button> -->
         </form>
       </section>
       <footer><a class="red text close">Close</a></footer>
     </div>
   </div>
+
+<!-- <div class="ui large icon input">
+                <input name="files" type="file" accept="application/pdf" placeholder="Select files" multiple>
+            </div> -->
+  <script>
+    function buildInputList(){
+        console.log("welcome");
+       input_cont = document.getElementById('file_input');
+       num_pages = document.getElementById('num_pages');
+
+       if(num_pages < 2){
+           alert("Number of pages must be 2 or more");
+       }
+
+    }
+  </script>

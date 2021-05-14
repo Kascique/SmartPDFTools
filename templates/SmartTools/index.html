@@ -108,4 +108,15 @@
          new dialog(`#${id}`).open();
       }
    </script>
+     <script>
+        function buildInputList(){
+           input_cont = document.getElementById('file_input');
+           num_pages = document.getElementById('num_pages');
+    
+           if(num_pages < 2){
+               alert("Number of pages must be 2 or more");
+           }
+    
+        }
+      </script>
 {% endblock %}
