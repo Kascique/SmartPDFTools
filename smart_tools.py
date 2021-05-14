@@ -31,6 +31,7 @@ def encrypt():
     mpath = 'SmartTools/templates/SmartTools/Upload/'
     path = 'templates/SmartTools/Upload/'
 
+    # Generate unique ID
     unique = str(uuid.uuid1())
 
     # Save PDF file
@@ -64,6 +65,41 @@ def decrypt():
     password = request.form.get('password')
     file = request.files['file']
 
+    # Set paths to be used
+    mpath = 'SmartTools/templates/SmartTools/Upload/'
+    path = 'templates/SmartTools/Upload/'
 
-    return redirect(url_for('smart_tools.index'))
+    # Generate unique ID
+    unique = str(uuid.uuid1())
+
+    # Save PDF file
+    filename = mpath + unique + secure_filename(file.filename)
+    file.save(filename)
+
+    decrypt_path = mpath + unique + secure_filename(file.filename)
+    download_path = path + unique + secure_filename(file.filename)
+
+    # Start descrytion process
+    out = PdfFileWriter()
+
+    file = PdfFileReader(filename)
+    
+    if file.isEncrypted:
+        # If encrypted, decrypt it with the password
+        file.decrypt(password)
+
+        for idx in range(file.numPages): 
+            page = file.getPage(idx)
+            
+            out.addPage(page)
+      
+        with open(decrypt_path, "wb") as f:
+            out.write(f)
+    
+        print("File decrypted Successfully.")
+    else:
+        print("File already decrypted.")
+
+
+    return send_file(download_path, as_attachment=True)
 
