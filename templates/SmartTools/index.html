@@ -112,9 +112,16 @@
         input_cont = document.getElementById('file_input');
         num_pages = document.getElementById('num_pages');
 
-        if(num_pages < 2){
+        htmlData = '';
+
+        if(num_pages.value < 2){
             alert("Number of pages must be 2 or more");
+            htmlData += `<div class="ui large icon input">
+                            <input name="files" type="file" accept="application/pdf" placeholder="Select files" multiple>
+                        </div>`;
         }
+
+        input_cont.html(htmlData);
       }
   </script>
 {% endblock %}
