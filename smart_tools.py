@@ -36,16 +36,21 @@ def encrypt():
     encrypt_path = mpath + secure_filename(file.filename)
     download_path = path + secure_filename(file.filename)
 
-    with open(filename, "rb") as in_file:
-        input_pdf = PdfFileReader(in_file)
-        output_pdf = PdfFileWriter()
-        output_pdf.appendPagesFromReader(input_pdf)
-        output_pdf.encrypt(str(password))
-        with open(encrypt_path, "wb") as out_file:
-            output_pdf.write(out_file)
+    out = PdfFileWriter()
+    file = PdfFileReader(filename)
+    num = file.numPages
+
+    for idx in range(num):
+        page = file.getPage(idx)
+        out.addPage(page)
+    
+    out.encrypt(password)
+
+    with open(encrypt_path, "wb") as f:
+        out.write(f)
 
     return send_file(download_path, as_attachment=True)
     
-    return redirect(url_for('smart_tools.index'))
+    # return redirect(url_for('smart_tools.index'))
 
 
