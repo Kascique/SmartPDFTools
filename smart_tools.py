@@ -31,12 +31,14 @@ def encrypt():
     mpath = 'SmartTools/templates/SmartTools/Upload/'
     path = 'templates/SmartTools/Upload/'
 
+    unique = str(uuid.uuid1())
+
     # Save PDF file
-    filename = mpath + str(uuid.uuid1()) + secure_filename(file.filename)
+    filename = mpath + unique + secure_filename(file.filename)
     file.save(filename)
 
-    encrypt_path = mpath + str(uuid.uuid1()) + secure_filename(file.filename)
-    download_path = path + str(uuid.uuid1()) + secure_filename(file.filename)
+    encrypt_path = mpath + unique + secure_filename(file.filename)
+    download_path = path + unique + secure_filename(file.filename)
 
     # Start encryption process
     out = PdfFileWriter()
