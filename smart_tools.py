@@ -115,14 +115,14 @@ def decrypt():
             with open(decrypt_path, "wb") as f:
                 out.write(f)
         
-            flash('Error')
-            flash('File Successfully descrypted')
+            # flash('Error')
+            print('File Successfully descrypted')
         else:
-            flash('Error')
-            flash('File was already decrypted')
+            # flash('Error')
+            print('File was already decrypted')
     except:
-        flash('Error')
-        flash('There was an error decrypting your time ')
+        print('Error')
+        # flash('There was an error decrypting your time ')
 
     return send_file(download_path, as_attachment=True)
 
