@@ -44,7 +44,7 @@ def encrypt():
     # If file is not PDF
     if not filename.endswith('.pdf'):
         return redirect(url_for('smart_tools.index'))
-        
+
     file.save(filename)
 
     encrypt_path = mpath + unique + secure_filename(file.filename)
@@ -97,27 +97,32 @@ def decrypt():
     decrypt_path = mpath + unique + secure_filename(file.filename)
     download_path = path + unique + secure_filename(file.filename)
 
-    # Start descrytion process
-    out = PdfFileWriter()
+    try:
+        # Start descrytion process
+        out = PdfFileWriter()
 
-    file = PdfFileReader(filename)
-    
-    if file.isEncrypted:
-        # If encrypted, decrypt it with the password
-        file.decrypt(password)
+        file = PdfFileReader(filename)
+        
+        if file.isEncrypted:
+            # If encrypted, decrypt it with the password
+            file.decrypt(password)
 
-        for idx in range(file.numPages): 
-            page = file.getPage(idx)
-            
-            out.addPage(page)
-      
-        with open(decrypt_path, "wb") as f:
-            out.write(f)
-    
-        print("File decrypted Successfully.")
-    else:
-        print("File already decrypted.")
-
+            for idx in range(file.numPages): 
+                page = file.getPage(idx)
+                
+                out.addPage(page)
+        
+            with open(decrypt_path, "wb") as f:
+                out.write(f)
+        
+            flash('Error')
+            flash('File Successfully descrypted')
+        else:
+            flash('Error')
+            flash('File was already decrypted')
+    except:
+        flash('Error')
+        flash('There was an error decrypting your time ')
 
     return send_file(download_path, as_attachment=True)
 
