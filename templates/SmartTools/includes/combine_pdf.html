@@ -1,0 +1,22 @@
+<div class="dialog overlay smart" id="combine_pdf">
+    <div class="content">
+      <header>
+        <label class="title">Combine PDF Files</label>
+      </header>
+      <section>
+        <form class="ui form" method="POST" action="{{ url_for('smart_tools.encrypt') }}" enctype="multipart/form-data">
+            <div class="ui large icon input">
+                <input name="password" type="password" placeholder="Password">
+            </div>
+            <div class="ui large icon input">
+                <input name="file" type="file" accept="application/pdf" placeholder="Select file">
+            </div>
+            <br/><br/>
+            <button class="ui button blue big">
+                Combine
+            </button>
+        </form>
+      </section>
+      <footer><a class="red text close">Close</a></footer>
+    </div>
+  </div>
