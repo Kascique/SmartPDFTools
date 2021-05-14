@@ -130,6 +130,11 @@ def decrypt():
 @smart_tools.route('/SmartTools/pdf/combine', methods=['POST'])
 def combine():
     files = request.files.getlist('files')
+    print('############################')
+    print(files)
+    
+    return redirect(url_for('smart_tools.index'))
+
     
     to_combin = []
 

@@ -74,6 +74,12 @@
 .smart.scrollable section{
     padding: 0 !important
 }
+
+.smart.scrollable .content .ui.action.input{
+    background: red !important;
+    width: calc(100% - 100px);
+}
+
 </style>
 {% endblock %}
 
@@ -131,18 +137,18 @@
 
         if(num_pages.value < 2){
             alert("Number of pages must be 2 or more");
+        }else{
+            var i;
+            for (i = 0; i < num_pages.value; i++) {
+                htmlData += `<div class="ui large icon input">
+                                <input name="files" type="file" accept="application/pdf" placeholder="Select files">
+                            </div>`;
+            }
+
+            htmlData += `<br/><br/><button class="ui button blue big">Combine</button>`;
+
+            input_cont.innerHTML = htmlData;
         }
-
-        var i;
-        for (i = 0; i < num_pages.value; i++) {
-            htmlData += `<div class="ui large icon input">
-                            <input name="files" type="file" accept="application/pdf" placeholder="Select files" multiple>
-                        </div>`;
-        }
-
-        htmlData += `<br/><br/><button class="ui button blue big">Combine</button>`;
-
-        input_cont.innerHTML = htmlData;
       }
   </script>
 {% endblock %}
