@@ -130,12 +130,11 @@ def decrypt():
 @smart_tools.route('/SmartTools/pdf/combine', methods=['POST'])
 def combine():
     files = request.files.getlist('files')
-    print('############################')
-    print(files)
-    
-    return redirect(url_for('smart_tools.index'))
+    # print('############################')
+    # print(files)
 
-    
+    # return redirect(url_for('smart_tools.index'))
+
     to_combin = []
 
     if not files:
@@ -165,7 +164,7 @@ def combine():
     merger = PdfFileMerger()
 
     # Reverse array
-    to_combin.reverse()
+    # to_combin.reverse()
 
     for pdf in to_combin:
         merger.append(pdf)
