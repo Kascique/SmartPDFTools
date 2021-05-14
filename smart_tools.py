@@ -159,6 +159,9 @@ def combine():
 
     merger = PdfFileMerger()
 
+    # Reverse array
+    to_combin.reverse()
+
     for pdf in to_combin:
         merger.append(pdf)
 
