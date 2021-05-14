@@ -1,6 +1,6 @@
 import os
 from flask import Blueprint, render_template, redirect, url_for, request, flash, send_file
-from PyPDF2 import PdfFileReader, PdfFileWriter
+from PyPDF2 import PdfFileReader, PdfFileWriter, PdfFileMerger
 
 
 import uuid
@@ -136,13 +136,16 @@ def combine():
     if not files:
         return redirect(url_for('smart_tools.index'))
 
-    folder = unique = str(uuid.uuid1())
+    output_name = str(uuid.uuid1())
+
+    path = 'templates/SmartTools/Upload/'
+    mpath = 'SmartTools/templates/SmartTools/Upload/'
+
+    download_path = path + output_name + '.pdf'
+    decrypt_path = mpath + output_name + '.pdf'
+
 
     for file in files:
-
-        mpath = 'SmartTools/templates/SmartTools/Upload/'
-        path = 'templates/SmartTools/Upload/'
-
         # Generate unique ID
         unique = str(uuid.uuid1())
 
@@ -154,6 +157,11 @@ def combine():
             file.save(filename)
             to_combin.append(filename)
 
-    print(to_combin)
+    merger = PdfFileMerger()
 
-    return redirect(url_for('smart_tools.index'))
+    for pdf in to_combin:
+        merger.append(pdf)
+
+    merger.write(decrypt_path)
+    
+    return send_file(download_path, as_attachment=True)
