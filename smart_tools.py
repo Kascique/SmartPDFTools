@@ -126,3 +126,34 @@ def decrypt():
 
     return send_file(download_path, as_attachment=True)
 
+
+@smart_tools.route('/SmartTools/pdf/combine', methods=['POST'])
+def combine():
+    files = request.files.getlist('files')
+    
+    to_combin = []
+
+    if not files:
+        return redirect(url_for('smart_tools.index'))
+
+    folder = unique = str(uuid.uuid1())
+
+    for file in files:
+
+        mpath = 'SmartTools/templates/SmartTools/Upload/'
+        path = 'templates/SmartTools/Upload/'
+
+        # Generate unique ID
+        unique = str(uuid.uuid1())
+
+        # Save PDF file
+        filename = mpath + unique + secure_filename(file.filename)
+        
+        # If file is not PDF
+        if filename.endswith('.pdf'):
+            file.save(filename)
+            to_combin.append(filename)
+
+    print(to_combin)
+
+    return redirect(url_for('smart_tools.index'))

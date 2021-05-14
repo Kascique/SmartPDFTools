@@ -4,12 +4,12 @@
         <label class="title">Combine PDF Files</label>
       </header>
       <section>
-        <form class="ui form" method="POST" action="{{ url_for('smart_tools.encrypt') }}" enctype="multipart/form-data">
+        <form class="ui form" method="POST" action="{{ url_for('smart_tools.combine') }}" enctype="multipart/form-data">
             <!-- <div class="ui large icon input">
                 <input name="password" type="password" placeholder="Password">
             </div> -->
             <div class="ui large icon input">
-                <input name="file" type="file" accept="application/pdf" placeholder="Select file">
+                <input name="files" type="file" accept="application/pdf" placeholder="Select files" multiple>
             </div>
             <br/><br/>
             <button class="ui button blue big">
