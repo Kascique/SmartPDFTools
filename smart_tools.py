@@ -27,6 +27,10 @@ def encrypt():
     password = request.form.get('password')
     file = request.files['file']
 
+    # if file or password is not submitted 
+    if not password or not file:
+        return redirect(url_for('smart_tools.index'))
+
     # Set paths to be used
     mpath = 'SmartTools/templates/SmartTools/Upload/'
     path = 'templates/SmartTools/Upload/'
@@ -64,6 +68,10 @@ def encrypt():
 def decrypt():
     password = request.form.get('password')
     file = request.files['file']
+
+    # if file or password is not submitted 
+    if not password or not file:
+        return redirect(url_for('smart_tools.index'))
 
     # Set paths to be used
     mpath = 'SmartTools/templates/SmartTools/Upload/'
