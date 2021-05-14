@@ -27,15 +27,18 @@ def encrypt():
     password = request.form.get('password')
     file = request.files['file']
 
+    # Set paths to be used
     mpath = 'SmartTools/templates/SmartTools/Upload/'
     path = 'templates/SmartTools/Upload/'
 
+    # Save PDF file
     filename = mpath + secure_filename(file.filename)
     file.save(filename)
 
     encrypt_path = mpath + secure_filename(file.filename)
     download_path = path + secure_filename(file.filename)
 
+    # Start encryption process
     out = PdfFileWriter()
     file = PdfFileReader(filename)
     num = file.numPages
@@ -53,4 +56,12 @@ def encrypt():
     
     # return redirect(url_for('smart_tools.index'))
 
+
+@smart_tools.route('/SmartTools/pdf/decrypt', methods=['POST'])
+def decrypt():
+    password = request.form.get('password')
+    file = request.files['file']
+
+    
+    return redirect(url_for('smart_tools.index'))
 
