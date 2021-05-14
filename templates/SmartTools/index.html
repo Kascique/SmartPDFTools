@@ -117,12 +117,18 @@
 
         if(num_pages.value < 2){
             alert("Number of pages must be 2 or more");
+        }
+
+        var i;
+        for (i = 0; i < num_pages.value; i++) {
             htmlData += `<div class="ui large icon input">
                             <input name="files" type="file" accept="application/pdf" placeholder="Select files" multiple>
                         </div>`;
         }
 
-        input_cont.html(htmlData);
+        htmlData += `<button class="ui button blue big">Combine</button>`;
+
+        input_cont.innerHTML = htmlData;
       }
   </script>
 {% endblock %}
