@@ -5,9 +5,9 @@
       </header>
       <section>
         <form class="ui form" method="POST" action="{{ url_for('smart_tools.combine') }}" enctype="multipart/form-data">
-            <!-- <div class="ui large icon input">
-                <input name="password" type="password" placeholder="Password">
-            </div> -->
+            <div class="ui large icon input">
+                <input name="num_pages" type="number" placeholder="Number of pages">
+            </div>
             <div class="ui large icon input">
                 <input name="files" type="file" accept="application/pdf" placeholder="Select files" multiple>
             </div>
