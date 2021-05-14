@@ -32,11 +32,11 @@ def encrypt():
     path = 'templates/SmartTools/Upload/'
 
     # Save PDF file
-    filename = mpath + secure_filename(file.filename)
+    filename = mpath + uuid.uuid1() + secure_filename(file.filename)
     file.save(filename)
 
-    encrypt_path = mpath + secure_filename(file.filename)
-    download_path = path + secure_filename(file.filename)
+    encrypt_path = mpath + uuid.uuid1() + secure_filename(file.filename)
+    download_path = path + uuid.uuid1() + secure_filename(file.filename)
 
     # Start encryption process
     out = PdfFileWriter()
@@ -62,6 +62,6 @@ def decrypt():
     password = request.form.get('password')
     file = request.files['file']
 
-    
+
     return redirect(url_for('smart_tools.index'))
 
